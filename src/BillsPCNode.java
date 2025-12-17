@@ -1,12 +1,4 @@
 class BillsPCNode {
-    int key;
-    Pokemon value;
-    BillsPCNode next;
-    BillsPCNode previous;
-
-    public BillsPCNode(int key, Pokemon value) {
-        this.key = key;
-        this.value = value;
-        this.next = null;
-    }
+    int key; Pokemon val; BillsPCNode next;
+    BillsPCNode(int k, Pokemon v){key=k;val=v;}
 }

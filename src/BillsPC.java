@@ -1,47 +1,16 @@
 class BillsPC {
-    private BillsPCNode[] buckets;
-    private int capacity;
-    private int size;
+    private BillsPCNode[] buckets = new BillsPCNode[50]; // Increased size
 
-    public BillsPC() {
-        this.capacity = 10;
-        buckets = new BillsPCNode[capacity];
-        size = 0;
+    public void put(int key, Pokemon val){
+        int idx = Math.abs(key) % 50;
+        BillsPCNode n = new BillsPCNode(key, val);
+        n.next = buckets[idx];
+        buckets[idx] = n;
     }
-    private int getBucketIndex(int key){
-        return Math.abs(key) % capacity;
-    }
-
-    public void put(int key, Pokemon value){
-        int index = getBucketIndex(key);
-        BillsPCNode head = buckets[index];
-
-        while(head != null){
-            if(head.key == key){
-                head.value = value;
-                return;
-            }
-            head = head.next;
-        }
-
-        size++;
-        head = buckets[index];
-        BillsPCNode newNode = new BillsPCNode(key, value);
-        newNode.next = head;
-        buckets[index] = newNode;
-    }
-
     public Pokemon get(int key){
-        int index = getBucketIndex(key);
-        BillsPCNode head = buckets[index];
-
-        while(head != null){
-            if(head.key == key){
-                return head.value;
-            }
-            head = head.next;
-        }
+        int idx = Math.abs(key) % 50;
+        BillsPCNode h = buckets[idx];
+        while(h!=null){ if(h.key==key) return h.val; h=h.next; }
         return null;
     }
-
 }

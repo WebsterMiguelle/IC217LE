@@ -1,14 +1,14 @@
-public class Pokeball {
-    //Treat this class as if it is the AVL Node
+class Pokeball {
     int statValue;
-    int pokemonID;
-    Pokeball left;
-    Pokeball right;
+    int pokemonUniqueID; // Changed to UniqueID
+    Pokeball left, right;
     int height;
+    // Optimization: You could store 'size' of subtree here for O(log n) indexing,
+    // but for this text game, simple traversal is fine.
 
-    Pokeball(int statValue, int pokemonID){
+    Pokeball(int statValue, int uid){
         this.statValue = statValue;
-        this.pokemonID = pokemonID;
+        this.pokemonUniqueID = uid;
         this.height = 1;
     }
 }
