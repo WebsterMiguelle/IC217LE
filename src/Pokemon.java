@@ -6,7 +6,6 @@ class Pokemon {
     private static String[] pokedexNames = new String[2000];
     private static boolean isLoaded = false;
 
-    // Static CSV Loader
     public static void loadCSV(String filepath) {
         if(isLoaded) return;
         try {
@@ -30,9 +29,8 @@ class Pokemon {
         }
     }
 
-    // Instance Data
     int speciesID;
-    int uniqueID; // New: Allows multiple Pikachus
+    int uniqueID;
     String name;
     int[] stats; // 0:HP, 1:Atk, 2:Def, 3:SpA, 4:SpD, 5:Spe, 6:Lvl
 
@@ -44,15 +42,7 @@ class Pokemon {
 
     @Override
     public String toString() {
-        // Returns: Name | Lvl 5 | H:20 A:20 D:20 SA:20 SD:20 S:20
-        return String.format("%-12s | Lvl %-3d | H:%-3d A:%-3d D:%-3d SA:%-3d SD:%-3d S:%-3d",
-                name, stats[6],
-                stats[0], // HP
-                stats[1], // Atk
-                stats[2], // Def
-                stats[3], // SpA
-                stats[4], // SpD
-                stats[5]  // Spe
-        );
+        return String.format("[ID:%-5d] %-10s | Lvl %-3d | H:%-3d A:%-3d D:%-3d S:%-3d",
+                uniqueID, name, stats[6], stats[0], stats[1], stats[2], stats[5]);
     }
 }
