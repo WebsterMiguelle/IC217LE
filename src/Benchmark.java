@@ -8,22 +8,20 @@ class Benchmark {
         System.out.println("=================================");
         System.out.println("Initializing test environment...");
 
-        // Create a separate Handler for testing to not mess up user data
         Handler testGame = new Handler();
-        testGame.setSilent(true); // Disable text output for speed
+        testGame.setSilent(true);//THIS IS TO ALLOW DISPLAY OF FUNCTION WHILE BENCHMARKING
 
         ArrayList<Integer> generatedIDs = new ArrayList<>(N);
         Random r = new Random();
 
         // --- TEST 1: INSERTION ---
-        System.out.print("Running INSERTION test... ");
+        System.out.println("Running INSERTION test... ");
         long start = System.nanoTime();
 
         for(int i = 0; i < N; i++) {
-            // Manually create pokemon to capture the ID for later tests
             int species = r.nextInt(151) + 1;
             Pokemon p = new Pokemon(species, 50, 50, 50, 50, 50, 50, 50);
-            p.uniqueID = i; // Simple sequential ID for benchmark
+            p.uniqueID = i;
             generatedIDs.add(p.uniqueID);
             testGame.addPokemon(p);
         }
@@ -33,11 +31,11 @@ class Benchmark {
         System.out.printf("DONE. [%.2f ms]%n", insertTime);
 
         // --- TEST 2: SEARCHING ---
-        System.out.print("Running SEARCH test...    ");
+        System.out.println("Running SEARCH test...    ");
         start = System.nanoTime();
 
         for(int id : generatedIDs) {
-            testGame.searchPokemon(id); // Look up every single added Pokemon
+            testGame.searchPokemonBenchmark(id);
         }
 
         end = System.nanoTime();
@@ -45,7 +43,7 @@ class Benchmark {
         System.out.printf("DONE. [%.2f ms]%n", searchTime);
 
         // --- TEST 3: DELETION ---
-        System.out.print("Running DELETION test...  ");
+        System.out.println("Running DELETION test...  ");
         start = System.nanoTime();
 
         for(int id : generatedIDs) {

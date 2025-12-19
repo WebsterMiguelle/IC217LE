@@ -1,6 +1,12 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+// ==========================================
+// 1. MAIN CLASS
+// ==========================================
 public class Main {
     public static void main(String[] args) {
         // 1. Load Data
@@ -9,21 +15,21 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Random rng = new Random();
 
-        // 2. Starter Pokemon
         System.out.println("...Booting Bill's PC System...");
         System.out.println("System: Here is a starter for you.");
         game.generateRandomEncounter(25); // Pikachu starter
 
         while(true) {
             System.out.println("\n=================================");
-            System.out.println("      POKEMON STORAGE OS v1.3    ");
+            System.out.println("      POKEMON STORAGE OS v1.4    ");
             System.out.println("=================================");
             System.out.println("[1] Explore (Find Random Pokemon)");
             System.out.println("[2] Access Bill's PC (View Box)");
             System.out.println("[3] Auto-Build Team (Top 6)");
             System.out.println("[4] System Status (Count)");
             System.out.println("[5] Release Pokemon");
-            System.out.println("[6] Run System Benchmark"); // NEW OPTION
+            System.out.println("[6] Search Pokemon (Lookup ID)"); // NEW OPTION
+            System.out.println("[7] Run System Benchmark");
             System.out.println("[0] Shut Down");
             System.out.print("choice:> ");
 
@@ -57,8 +63,14 @@ public class Main {
                     } catch (Exception e) { System.out.println("Invalid ID."); }
                     break;
                 case "6":
-                    // NEW: BENCHMARK LOGIC
-                    System.out.print("\nEnter N (Sample Size, e.g., 10000, 100000): ");
+                    System.out.print("Enter Unique ID to view: ");
+                    try {
+                        int idToSearch = Integer.parseInt(scanner.next());
+                        game.displayPokemon(idToSearch);
+                    } catch (Exception e) { System.out.println("Invalid ID."); }
+                    break;
+                case "7":
+                    System.out.println("\nEnter N (Sample Size, e.g., 10000, 100000): ");
                     try {
                         int n = Integer.parseInt(scanner.next());
                         Benchmark.run(n);
