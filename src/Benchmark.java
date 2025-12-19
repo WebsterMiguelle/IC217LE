@@ -14,7 +14,7 @@ class Benchmark {
         ArrayList<Integer> generatedIDs = new ArrayList<>(N);
         Random r = new Random();
 
-        // --- TEST 1: INSERTION ---
+
         System.out.println("Running INSERTION test... ");
         long start = System.nanoTime();
 
@@ -30,7 +30,7 @@ class Benchmark {
         double insertTime = (end - start) / 1_000_000.0;
         System.out.printf("DONE. [%.2f ms]%n", insertTime);
 
-        // --- TEST 2: SEARCHING ---
+
         System.out.println("Running SEARCH test...    ");
         start = System.nanoTime();
 
@@ -42,7 +42,7 @@ class Benchmark {
         double searchTime = (end - start) / 1_000_000.0;
         System.out.printf("DONE. [%.2f ms]%n", searchTime);
 
-        // --- TEST 3: DELETION ---
+
         System.out.println("Running DELETION test...  ");
         start = System.nanoTime();
 
@@ -54,7 +54,7 @@ class Benchmark {
         double deleteTime = (end - start) / 1_000_000.0;
         System.out.printf("DONE. [%.2f ms]%n", deleteTime);
 
-        // --- SUMMARY ---
+
         System.out.println("\n---------------------------------");
         System.out.println("        RESULTS SUMMARY          ");
         System.out.println("---------------------------------");

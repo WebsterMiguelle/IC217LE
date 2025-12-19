@@ -11,7 +11,7 @@ public class Main {
 
         System.out.println("...Booting Bill's PC System...");
         System.out.println("System: Here is a starter for you.");
-        game.generateRandomEncounter(25); // Pikachu starter
+        game.generateRandomEncounter(25);
 
         while(true) {
             System.out.println("\n=================================");

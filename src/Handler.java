@@ -17,7 +17,7 @@ class Handler {
         }
     }
 
-    // --- NEW: Display Specific Pokemon (User Feature) ---
+
     public void displayPokemon(int uniqueID) {
         Pokemon p = masterRegistry.get(uniqueID);
         if (p != null) {
@@ -32,7 +32,7 @@ class Handler {
         }
     }
 
-    // --- Benchmark Specific Search (Silent) ---
+
     public void searchPokemonBenchmark(int uniqueID) {
        if(!silentMode) {
            displayPokemon(uniqueID);

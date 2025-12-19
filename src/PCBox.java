@@ -106,7 +106,7 @@ class PCBox {
         printRangeRec(node.left, registry, start, end, silent);
     }
 
-    // Overload for non-benchmark usage
+
     public void printRange(BillsPC registry, int start, int end) {
         printRange(registry, start, end, false);
     }

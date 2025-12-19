@@ -32,7 +32,7 @@ class Pokemon {
     int speciesID;
     int uniqueID;
     String name;
-    int[] stats; // 0:HP, 1:Atk, 2:Def, 3:SpA, 4:SpD, 5:Spe, 6:Lvl
+    int[] stats;
 
     Pokemon(int speciesID, int HP, int Atk, int Def, int SpA, int SpD, int Spe, int Lvl) {
         this.speciesID = speciesID;
