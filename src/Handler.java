@@ -1,8 +1,8 @@
 import java.util.Random;
 
 class Handler {
-    private BillsPC masterRegistry;
-    private PCBox[] indices;
+    private final BillsPC masterRegistry;
+    private final PCBox[] indices;
     private final String[] statNames = {"HP", "Atk","Def","SpA","SpD","Spe","Lvl"};
     private int totalCaptured = 0;
 
@@ -22,7 +22,7 @@ class Handler {
         Pokemon p = masterRegistry.get(uniqueID);
         if (p != null) {
             System.out.println("\n--- POKEMON FOUND ---");
-            System.out.println(p.toString());
+            System.out.println(p);
             System.out.println("Full Stats: " +
                     "HP:" + p.stats[0] + " Atk:" + p.stats[1] + " Def:" + p.stats[2] +
                     " SpA:" + p.stats[3] + " SpD:" + p.stats[4] + " Spe:" + p.stats[5]);
@@ -33,9 +33,11 @@ class Handler {
     }
 
     // --- Benchmark Specific Search (Silent) ---
-    public boolean searchPokemonBenchmark(int uniqueID) {
-       if(!silentMode) displayPokemon(uniqueID);
-            return masterRegistry.get(uniqueID) != null;
+    public void searchPokemonBenchmark(int uniqueID) {
+       if(!silentMode) {
+           displayPokemon(uniqueID);
+       }
+        masterRegistry.get(uniqueID);
     }
 
     public void generateRandomEncounter(int id) {
@@ -70,7 +72,7 @@ class Handler {
 
         if(!silentMode) {
             System.out.println("--> CAUGHT: " + p.name + " (Lvl " + p.stats[6] + ")");
-            System.out.println("    " + p.toString());
+            System.out.println("    " + p);
             System.out.println("    [Sent to Bill's PC]");
         }
     }

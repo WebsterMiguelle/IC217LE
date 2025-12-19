@@ -1,12 +1,6 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-// ==========================================
-// 1. MAIN CLASS
-// ==========================================
 public class Main {
     public static void main(String[] args) {
         // 1. Load Data
@@ -38,7 +32,7 @@ public class Main {
             switch (choice) {
                 case "1":
                     System.out.println("\nSearching for wild Pokemon...");
-                    try { Thread.sleep(800); } catch (Exception e){}
+                    try { Thread.sleep(800); } catch (Exception _){}
                     if(rng.nextDouble() > 0.3) {
                         int randomID = rng.nextInt(151) + 1;
                         game.generateRandomEncounter(randomID);
@@ -96,7 +90,7 @@ public class Main {
         System.out.println("[6] Lvl");
         System.out.print("Choice: ");
         int statChoice = 0;
-        try { statChoice = Integer.parseInt(scan.next()); } catch (Exception e) {}
+        try { statChoice = Integer.parseInt(scan.next()); } catch (Exception _) {}
         int indexToUse = statChoice;
         int page = 1;
         int pageSize = 5;
@@ -123,7 +117,7 @@ public class Main {
         System.out.println("[6] Lvl");
         System.out.print("Choice: ");
         int stat = 0;
-        try { stat = Integer.parseInt(scan.next()); } catch (Exception e){}
+        try { stat = Integer.parseInt(scan.next()); } catch (Exception _){}
         System.out.println("\nGenerating Optimal Team...");
         game.printPage(stat, 1, 6);
     }
